@@ -1,11 +1,10 @@
 package com.zipcodewilmington;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.sun.xml.internal.fastinfoset.util.StringArray;
 import com.sun.xml.internal.org.jvnet.fastinfoset.RestrictedAlphabet;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by leon on 1/29/18.
@@ -122,7 +121,11 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        List<String> list = new ArrayList<String>(Arrays.asList(array));
+        list.remove(valueToRemove);
+        array = list.toArray(new String[0]);
+
+        return array;
     }
 
     /**
@@ -130,14 +133,23 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        Set<String> string1 = new TreeSet<String>();
+        for(String str: array){
+         string1.add(str);
+        }
+        String [] string2 = string1.toArray(new String[string1.size()]);
+        return string2;
     }
+
+
 
     /**
      * @param array array of chars
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+
+
         return null;
     }
 
